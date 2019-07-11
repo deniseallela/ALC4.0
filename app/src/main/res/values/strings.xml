@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">ALC4Challenge</string>
+    <string name="name">Allela Atieno Eunice</string>
+    <string name="track">Track:Android</string>
+    <string name="country">Country:Kenya</string>
+    <string name="email">Email:eunallela@gmail.com</string>
+    <string name="phone">PhoneNumber:+254708634484</string>
+    <string name="slack">Slack Username:Allela</string>
+</resources>
