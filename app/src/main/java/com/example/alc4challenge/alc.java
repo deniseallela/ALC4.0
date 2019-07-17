@@ -1,9 +1,12 @@
 package com.example.alc4challenge;
 
+import android.net.http.SslError;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.webkit.SslErrorHandler;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
+import android.webkit.WebViewClient;
 
 public class alc extends AppCompatActivity {
 WebView webView;
@@ -12,8 +15,17 @@ WebView webView;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_alc);
         webView=findViewById(R.id.andelawebview);
-        webView.getSettings().setJavaScriptEnabled(true);
-        webView.getSettings().setPluginState(WebSettings.PluginState.ON);
+        WebSettings settings=webView.getSettings();
+        settings.setJavaScriptEnabled(true);
+        settings.setUseWideViewPort(true);
+        settings.setLoadWithOverviewMode(true);
+
+        webView.setWebViewClient(new WebViewClient(){
+            @Override
+            public void onReceivedSslError(WebView view, SslErrorHandler handler, SslError error) {
+                handler.proceed();
+            }
+        });
         webView.loadUrl("https://andela.com/alc/");
     }
 }
